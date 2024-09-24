@@ -11,6 +11,7 @@ export const Layout: FC<{ title?: string, children?: any }> = (props: {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{props.title ?? 'Document'}</title>
         <link rel="stylesheet" href="public/style.css" />
+        <script src="public/htmx.min.js"></script>
       </head>
       <body>
         <script src="https://cdn.tiny.cloud/1/d7azxkvknquchxctaa2irhkdxt6zqco7bxdq7soa1gowdbxm/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>

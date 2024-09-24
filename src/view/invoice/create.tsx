@@ -1,5 +1,7 @@
 import { FC } from "hono/jsx";
 import { Layout } from "../index.tsx";
+import { Item } from "./item.tsx";
+import { AddItem } from "./add-item.tsx";
 
 export type InvoiceProps = {
   todayDate: string
@@ -82,23 +84,8 @@ export const Invoice: FC<InvoiceProps> = (props: InvoiceProps) => {
                       </tr>
                     </thead>
                     <tbody className="border border-black">
-                      <tr>
-                        <td>
-                          <input type="text" placeholder="Name" name="item-name" className="w-full p-1 border border-gray-700 rounded" />
-                        </td>
-                        <td>
-                          <input type="text" placeholder="Description" name="item-description" className="w-full p-1 border border-gray-800 rounded" />
-                        </td>
-                        <td>
-                          <input type="text" placeholder="Quantity" name="item-quantity" className="w-full p-1 border border-gray-700 rounded" />
-                        </td>
-                        <td>
-                          <input type="text" placeholder="Price" name="item-price" className="w-full p-1 border border-gray-700 rounded" />
-                        </td>
-                        <td className="flex flex-row justify-center">
-                          <button className="button border border-black p-1 rounded m-1">Add</button>
-                        </td>
-                      </tr>
+                      <Item index={0} name="Product 1" description="Description 1" quantity={1} price={1000} />
+                      <AddItem />
                     </tbody>
                   </table>
                 </div>

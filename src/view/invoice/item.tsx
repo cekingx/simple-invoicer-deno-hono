@@ -12,16 +12,16 @@ export const Item: FC<ItemProps> = (props: ItemProps) => {
   return (
     <tr>
       <td className="border border-black">
-        <input type="text" className="w-full p-1" value={props.name} name={`${props.index}[name]`} readonly/>
+        <input type="text" className="w-full p-1" value={props.name} name={`items[${props.index}][name]`} readonly/>
       </td>
       <td className="border border-black">
-        <input type="text" className="w-full p-1" value={props.description} name={`${props.index}[description]`} readonly/>
+        <input type="text" className="w-full p-1" value={props.description} name={`items[${props.index}][description]`} readonly/>
       </td>
       <td className="border border-black">
-        <input type="text" className="w-full p-1" value={props.quantity} name={`${props.index}[quantity]`} readonly/>
+        <input type="text" className="w-full p-1" value={props.quantity} name={`items[${props.index}][quantity]`} readonly/>
       </td>
       <td className="border border-black">
-        <input type="text" className="w-full p-1" value={props.price} name={`${props.index}[price]`} readonly/>
+        <input type="text" className="w-full p-1" value={props.price} name={`items[${props.index}][price]`} readonly/>
       </td>
       <td className="border border-black">
         <div className="container flex flex-row justify-center">

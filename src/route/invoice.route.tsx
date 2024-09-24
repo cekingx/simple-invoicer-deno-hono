@@ -13,4 +13,12 @@ invoice.get('/', (c: Context) => {
   return c.render(<Invoice {...props}/>)
 })
 
+invoice.post('/', async (c: Context) => {
+  const body = await c.req.parseBody()
+  console.log('body', body)
+  return c.json({
+    message: 'Oke'
+  })
+})
+
 export default invoice

@@ -16,7 +16,7 @@ export const Invoice: FC<InvoiceProps> = (props: InvoiceProps) => {
           <div className="container">
             <h1 className="fond-bold text-2xl my-2">Create Invoice</h1>
 
-            <form action="/" method="post" className="flex flex-col">
+            <form action="/invoice" method="post" className="flex flex-col">
               <div className="flex flex-row">
                 <div className="flex flex-col flex-1">
                   <label htmlFor="invoice-number" className="font-bold">Invoice Number</label>
@@ -85,6 +85,7 @@ export const Invoice: FC<InvoiceProps> = (props: InvoiceProps) => {
                     </thead>
                     <tbody className="border border-black">
                       <Item index={0} name="Product 1" description="Description 1" quantity={1} price={1000} />
+                      <Item index={1} name="Product 2" description="Description 2" quantity={2} price={500} />
                       <AddItem />
                     </tbody>
                   </table>

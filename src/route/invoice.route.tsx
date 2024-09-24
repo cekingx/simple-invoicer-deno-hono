@@ -1,6 +1,6 @@
 import { Context, Hono } from 'hono'
-import { Invoice } from "../template/invoice/create.tsx";
-import { InvoiceProps } from "../template/invoice/create.tsx";
+import { Invoice } from "../view/invoice/create.tsx";
+import { InvoiceProps } from "../view/invoice/create.tsx";
 
 const invoice = new Hono()
 

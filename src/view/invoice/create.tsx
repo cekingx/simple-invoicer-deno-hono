@@ -1,5 +1,5 @@
 import { FC } from "hono/jsx";
-import { Layout } from "../index.template.tsx";
+import { Layout } from "../index.tsx";
 
 export type InvoiceProps = {
   todayDate: string
@@ -67,6 +67,51 @@ export const Invoice: FC<InvoiceProps> = (props: InvoiceProps) => {
                   </textarea>
                 </div>
               </div>
+
+              <div className="container my-2">
+                <label htmlFor="product" className="font-bold mb-2">Product</label>
+                <div className="flex flex-row mb-2">
+                  <table className="border border-collapse table-auto flex-grow">
+                    <thead className="border">
+                      <tr>
+                        <th className="border border-black p-1">Name</th>
+                        <th className="border border-black p-1">Description</th>
+                        <th className="border border-black p-1">Quantity</th>
+                        <th className="border border-black p-1">Price</th>
+                        <th className="border border-black p-1">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody className="border border-black">
+                      <tr>
+                        <td>
+                          <input type="text" placeholder="Name" name="item-name" className="w-full p-1 border border-gray-700 rounded" />
+                        </td>
+                        <td>
+                          <input type="text" placeholder="Description" name="item-description" className="w-full p-1 border border-gray-800 rounded" />
+                        </td>
+                        <td>
+                          <input type="text" placeholder="Quantity" name="item-quantity" className="w-full p-1 border border-gray-700 rounded" />
+                        </td>
+                        <td>
+                          <input type="text" placeholder="Price" name="item-price" className="w-full p-1 border border-gray-700 rounded" />
+                        </td>
+                        <td className="flex flex-row justify-center">
+                          <button className="button border border-black p-1 rounded m-1">Add</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div className="container my-2">
+                <label htmlFor="note" className="font-bold mb-2">Note</label>
+                <textarea name="note" id="note">
+                  Payment to:
+                </textarea>
+              </div>
+
+              <button type="submit" className="bg-black text-white rounded px-2 py-4 my-2">Create Invoice</button>
             </form>
           </div>
         </div>

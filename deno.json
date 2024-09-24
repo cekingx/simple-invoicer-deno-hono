@@ -1,9 +1,14 @@
 {
   "imports": {
-    "hono": "jsr:@hono/hono@^4.6.2"
+    "@tinymce/tinymce-react": "npm:@tinymce/tinymce-react@^5.1.1",
+    "hono": "jsr:@hono/hono@^4.6.2",
+    "react": "npm:react@^18.3.1",
+    "tailwindcss": "npm:tailwindcss@^3.4.13"
   },
   "tasks": {
-    "start": "deno run --allow-net main.ts"
+    "build:css": "deno run -A npm:tailwindcss build -i src/input.css -o public/style.css --watch",
+    "dev": "deno run -RNE --watch main.tsx",
+    "start": "deno run -RN main.ts"
   },
   "compilerOptions": {
     "jsx": "precompile",

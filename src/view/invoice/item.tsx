@@ -25,7 +25,11 @@ export const Item: FC<ItemProps> = (props: ItemProps) => {
       </td>
       <td className="border border-black">
         <div className="container flex flex-row justify-center">
-          <buttoner className="border border-black p-1 rounded m-1">Delete</buttoner>
+          <button
+            hx-post={`/invoice/delete-item/${props.index}`}
+            hx-target="closest tbody"
+            className="border border-black p-1 rounded m-1"
+          >Delete</button>
         </div>
       </td>
     </tr>

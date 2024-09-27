@@ -1,5 +1,5 @@
 import { FC } from "hono/jsx";
-import { InvoiceItem } from "../../class/InvoiceItem.ts";
+import { InvoiceItem } from "../../class/Invoice.ts";
 
 export const Item: FC<InvoiceItem> = (props: InvoiceItem) => {
   return (

@@ -4,6 +4,7 @@ import { InvoiceProps } from "../view/invoice/create.tsx";
 import qs from "qs";
 import { Item } from "../view/invoice/item.tsx";
 import { AddItem } from "../view/invoice/add-item.tsx";
+import { InvoiceItem } from "../class/InvoiceItem.ts";
 
 const invoice = new Hono()
 
@@ -18,17 +19,63 @@ invoice.get('/', (c: Context) => {
 
 invoice.post('/', async (c: Context) => {
   const body = await c.req.parseBody()
-  console.log('body', body)
-  const { items } = qs.parse(body)
-  console.log('items', items)
-  return c.json({
-    message: 'Oke'
+  const parsed: { items: InvoiceItem[] } = qs.parse(body)
+  const { items } = parsed
+  items.push({
+    index: items.length,
+    name: body['item-name'] as string,
+    description: body['item-description'] as string,
+    quantity: Number(body['item-quantity']),
+    price: Number(body['item-price'])
   })
+
+  const Items =
+  <>
+    {items.map((item, index) => (
+      <Item
+        index={index}
+        name={item.name}
+        description={item.description}
+        quantity={item.quantity}
+        price={item.price} />
+    ))}
+    <AddItem />
+  </>
+
+  return c.html(Items)
+})
+
+invoice.post('/add-item', async (c: Context) => {
+  const body = await c.req.parseBody()
+  const parsed: { items: InvoiceItem[] } = qs.parse(body)
+  const { items } = parsed
+  items.push({
+    index: items.length,
+    name: body['item-name'] as string,
+    description: body['item-description'] as string,
+    quantity: Number(body['item-quantity']),
+    price: Number(body['item-price'])
+  })
+
+  const Items =
+  <>
+    {items.map((item, index) => (
+      <Item
+        index={index}
+        name={item.name}
+        description={item.description}
+        quantity={item.quantity}
+        price={item.price} />
+    ))}
+    <AddItem />
+  </>
+
+  return c.html(Items)
 })
 
 invoice.post('/delete-item/:index', async (c: Context) => {
   const body = await c.req.parseBody()
-  const parsed: { items: any[] } = qs.parse(body)
+  const parsed: { items: InvoiceItem[] } = qs.parse(body)
   const { items } = parsed
   const index = Number(c.req.param('index'))
   const result = items.toSpliced(index, 1)

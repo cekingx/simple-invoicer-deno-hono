@@ -16,7 +16,11 @@ export const AddItem: FC = () => {
         <input type="text" placeholder="Price" name="item-price" className="w-full p-1 border border-gray-700 rounded" />
       </td>
       <td className="flex flex-row justify-center">
-        <button className="button border border-black p-1 rounded m-1">Add</button>
+        <button
+          hx-post="/invoice/add-item"
+          hx-target="closest tbody"
+          className="button border border-black p-1 rounded m-1"
+        >Add</button>
       </td>
     </tr>
   )

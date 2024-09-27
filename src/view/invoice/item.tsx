@@ -1,14 +1,7 @@
 import { FC } from "hono/jsx";
+import { InvoiceItem } from "../../class/InvoiceItem.ts";
 
-export type ItemProps = {
-  index: number
-  name: string
-  description: string
-  quantity: number
-  price: number
-}
-
-export const Item: FC<ItemProps> = (props: ItemProps) => {
+export const Item: FC<InvoiceItem> = (props: InvoiceItem) => {
   return (
     <tr>
       <td className="border border-black">
